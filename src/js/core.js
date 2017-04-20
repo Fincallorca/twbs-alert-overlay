@@ -149,5 +149,5 @@ function TwbsAlertOverlay(options)
 TwbsAlertOverlay.DEFAULTS = {
 	overlay: "#alert-overlay",
 	overlayAuto: true,
-	messages: [{type: 'success', content: 'Juhuuu'}, {type: 'warning', content: 'Juhuuu2'}]
+	messages: []
 };

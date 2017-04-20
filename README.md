@@ -1,9 +1,7 @@
 ## Twitter Bootstrap Alert Overlay
 
 [![LICENSE](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](LICENSE)
-
 [![https://jquery.com/](https://img.shields.io/badge/jQuery-3.1.1-red.svg?style=flat)](https://jquery.com/)
-
 [![https://v4-alpha.getbootstrap.com/](https://img.shields.io/badge/Bootstrap-4.0.0--alpha6-red.svg?style=flat)](https://v4-alpha.getbootstrap.com/)
 
 This is a small javascript snippet to show  [Bootstrap Alert Elements](https://v4-alpha.getbootstrap.com/components/alerts/) as result of XMLHttpRequests.
