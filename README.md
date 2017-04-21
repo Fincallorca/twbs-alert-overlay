@@ -17,7 +17,12 @@ Include the following lines of code in the `<head>` section of your HTML.
 
 ### The basics
 
-Use the predefined `alert-*` types and add some content to show as alert message.   
+Use the predefined bootstrap `alert-*` types and add some content to show as alert message:
+* `success`,
+* `info`,
+* `warning` or
+* `danger`
+
 
     $.twbsAlertOverlay({
         messages:

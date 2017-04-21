@@ -22,26 +22,24 @@ function TwbsAlertOverlay(options)
 
 	this._createOverlay = function()
 	{
-		var selector_parts = this._options.overlay.split(" ");
+		let selector_parts = this._options.overlay.split(" ");
 
-		var last_selector = selector_parts[selector_parts.length - 1];
+		let last_selector = selector_parts[selector_parts.length - 1];
 
-		var tag = "div";
-		var id = "";
-		var classes = "";
-
-		var $overlay = null;
+		let tag = "div";
+		let id = "";
+		let classes = "";
 
 		if( last_selector.search(/^[^#\.]+/g) > -1 )
 		{
 			tag = last_selector.match(/^[^#\.]+/g);
 		}
 
-		$overlay = $(document.createElement(tag));
+		let $overlay = $(document.createElement(tag));
 
 		if( last_selector.search(/#[^#\.\s]+/g) > -1 )
 		{
-			var ids = last_selector.match(/#[^#\.\s]+/g).map(function(_id)
+			let ids = last_selector.match(/#[^#\.\s]+/g).map(function(_id)
 			{
 				return _id.substring(1);
 			});
@@ -66,24 +64,24 @@ function TwbsAlertOverlay(options)
 
 		$overlay.css("display", "none");
 
-		$overlay.append($(document.createElement('div')).append(this._options.spinner));
+		$overlay.append($(document.createElement('div')));
 
 		return $overlay;
 	};
 
 	this._appendOverlay = function()
 	{
-		var selector_parts = this._options.overlay.split(" ");
+		let selector_parts = this._options.overlay.split(" ");
 		selector_parts.pop();
 
-		var selector = selector_parts.join(" ");
+		let selector = selector_parts.join(" ");
 
 		if( selector === "" )
 		{
 			selector = "body";
 		}
 
-		var $append_to = $(selector);
+		let $append_to = $(selector);
 
 		if( $append_to.length < 1 )
 		{
@@ -115,11 +113,13 @@ function TwbsAlertOverlay(options)
 
 		this.$_overlay.click(this._destroy.bind(this));
 
+		$("body").addClass("alert-overlay-open");
 		this.$_overlay.html(this._getAlertsElement()).show();
 	};
 
 	this._destroy = function()
 	{
+		$("body").removeClass("alert-overlay-open");
 		this.$_overlay.hide();
 	};
 
@@ -128,7 +128,7 @@ function TwbsAlertOverlay(options)
 	 */
 	this._getAlertsElement = function()
 	{
-		var $element = $('<div class="container"></div>');
+		let $element = $('<div class="container"></div>');
 
 		this._options.messages.forEach(function(_message)
 		{
@@ -140,7 +140,7 @@ function TwbsAlertOverlay(options)
 
 	this._getAlertElement = function(type, content)
 	{
-		return $('<div class="alert alert-' + type + '">' + content + '</div>');
+		return $('<div class="alert alert-' + type + '" role="alert">' + content + '</div>');
 	};
 
 	this._initializeOverlay();

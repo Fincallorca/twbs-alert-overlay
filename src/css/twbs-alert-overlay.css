@@ -7,6 +7,22 @@
 	left:             0;
 	width:            100%;
 	height:           100%;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, .3);
 	padding-top:      2rem;
+	cursor:           pointer;
+}
+
+#alert-overlay p
+{
+	margin: .5rem 0 0;
+}
+
+#alert-overlay p:first-child
+{
+	margin: 0;
+}
+
+.alert-overlay-open
+{
+	overflow: hidden;
 }

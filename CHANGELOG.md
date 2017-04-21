@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### [Unreleased]
 
+#### Added
+* CSS style of including `<p>` tags.
+* Added no-scroll by adding `overflow: hidden` to the `body` element.
+
 #### Fixed
 * Removed predefined messages in `TwbsAlertOverlay.DEFAULTS`.
 
