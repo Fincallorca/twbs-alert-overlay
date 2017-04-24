@@ -20,6 +20,11 @@ function TwbsAlertOverlay(options)
 
 	this.$_overlay = null;
 
+	this._scrollbarIsVisible = {
+		horizontal: null,
+		vertical: null,
+	};
+
 	this._createOverlay = function()
 	{
 		let selector_parts = this._options.overlay.split(" ");
@@ -113,14 +118,12 @@ function TwbsAlertOverlay(options)
 
 		this.$_overlay.click(this._destroy.bind(this));
 
-		$("body").addClass("alert-overlay-open");
-		this.$_overlay.html(this._getAlertsElement()).show();
+		this._showOverlay();
 	};
 
 	this._destroy = function()
 	{
-		$("body").removeClass("alert-overlay-open");
-		this.$_overlay.hide();
+		this._hideOverlay();
 	};
 
 	/**
@@ -141,6 +144,31 @@ function TwbsAlertOverlay(options)
 	this._getAlertElement = function(type, content)
 	{
 		return $('<div class="alert alert-' + type + '" role="alert">' + content + '</div>');
+	};
+
+	this._showOverlay = function()
+	{
+		let $body = $("body");
+
+		if( document.body.scrollHeight > document.documentElement.clientHeight )
+		{
+			$body.css("overflow-y", "scroll");
+		}
+
+		if( document.body.scrollWidth > document.documentElement.clientWidth )
+		{
+			$body.css("overflow-x", "scroll");
+		}
+
+		$body.addClass("alert-overlay-open");
+
+		this.$_overlay.html(this._getAlertsElement()).show();
+	};
+
+	this._hideOverlay = function()
+	{
+		$("body").removeClass("alert-overlay-open");
+		this.$_overlay.hide();
 	};
 
 	this._initializeOverlay();
