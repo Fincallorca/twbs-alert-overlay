@@ -20,10 +20,12 @@ function TwbsAlertOverlay(options)
 
 	this.$_overlay = null;
 
-	this._scrollbarIsVisible = {
-		horizontal: null,
-		vertical: null,
+	TwbsAlertOverlay._scrollPosition = {
+		top: null,
+		left: null
 	};
+
+	this._fnNoScroll = null;
 
 	this._createOverlay = function()
 	{
@@ -148,6 +150,9 @@ function TwbsAlertOverlay(options)
 
 	this._showOverlay = function()
 	{
+		TwbsAlertOverlay._scrollPosition.top = document.documentElement.scrollTop;
+		TwbsAlertOverlay._scrollPosition.left = document.documentElement.scrollLeft;
+
 		let $body = $("body");
 
 		if( document.body.scrollHeight > document.documentElement.clientHeight )
@@ -179,3 +184,11 @@ TwbsAlertOverlay.DEFAULTS = {
 	overlayAuto: true,
 	messages: []
 };
+
+$(document).on("scroll", function()
+{
+	if( $("body").hasClass("alert-overlay-open") )
+	{
+		window.scrollTo(TwbsAlertOverlay._scrollPosition.left, TwbsAlertOverlay._scrollPosition.top);
+	}
+});
