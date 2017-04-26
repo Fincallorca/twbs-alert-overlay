@@ -1,3 +1,8 @@
+/** @preserve Twitter Bootstrap Alert Overlay 0.1.0
+ * Available under the MIT license.
+ * See https://github.com/Fincallorca/twbs-alert-overlay/ for more information.
+ */
+
 /**
  *
  * @param {Object} options  - initial options
@@ -11,7 +16,7 @@
  */
 function TwbsAlertOverlay(options)
 {
-	this._options = $.extend(TwbsAlertOverlay.DEFAULTS, options || {});
+	this._options = $.extend({}, TwbsAlertOverlay.DEFAULTS, options || {});
 
 	if( this._options.messages.length === 0 )
 	{
@@ -24,8 +29,6 @@ function TwbsAlertOverlay(options)
 		top: null,
 		left: null
 	};
-
-	this._fnNoScroll = null;
 
 	this._createOverlay = function()
 	{
@@ -150,8 +153,9 @@ function TwbsAlertOverlay(options)
 
 	this._showOverlay = function()
 	{
-		TwbsAlertOverlay._scrollPosition.top = document.documentElement.scrollTop;
-		TwbsAlertOverlay._scrollPosition.left = document.documentElement.scrollLeft;
+		// http://stackoverflow.com/a/33462363/4351778
+		TwbsAlertOverlay._scrollPosition.top = window.scrollY || window.pageYOffset || document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);
+		TwbsAlertOverlay._scrollPosition.left = window.scrollX || window.pageXOffset || document.body.scrollLeft + (document.documentElement && document.documentElement.scrollLeft || 0);
 
 		let $body = $("body");
 
@@ -189,6 +193,9 @@ $(document).on("scroll", function()
 {
 	if( $("body").hasClass("alert-overlay-open") )
 	{
+		console.log(TwbsAlertOverlay._scrollPosition.left, TwbsAlertOverlay._scrollPosition.top);
+
+
 		window.scrollTo(TwbsAlertOverlay._scrollPosition.left, TwbsAlertOverlay._scrollPosition.top);
 	}
 });
