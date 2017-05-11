@@ -1,0 +1,35 @@
+{
+  "name": "fincallorca/twbs-alert-overlay",
+  "description": "This is a small javascript snippet to show  Bootstrap Alert Elements as result of XMLHttpRequests.",
+  "homepage": "https://github.com/Fincallorca/twbs-alert-overlay",
+  "type": "library",
+  "keywords": [
+	"bootstrap",
+	"alert",
+	"flash",
+	"flash-messages"
+  ],
+  "license": "MIT",
+  "require": {
+	"php": ">=5.4"
+  },
+  "authors": [
+	{
+	  "name": "Falko Matthies",
+	  "email": "falko.m@web.de"
+	}
+  ],
+  "extra": {
+	"component": {
+	  "scripts": [
+		"dist/jquery.twbs-toggle-buttons.min.js"
+	  ],
+	  "styles": [
+		"dist/jquery.twbs-toggle-buttons.min.css"
+	  ],
+	  "files": [
+		"dist/*"
+	  ]
+	}
+  }
+}
