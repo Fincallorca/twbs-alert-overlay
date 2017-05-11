@@ -193,9 +193,6 @@ $(document).on("scroll", function()
 {
 	if( $("body").hasClass("alert-overlay-open") )
 	{
-		console.log(TwbsAlertOverlay._scrollPosition.left, TwbsAlertOverlay._scrollPosition.top);
-
-
 		window.scrollTo(TwbsAlertOverlay._scrollPosition.left, TwbsAlertOverlay._scrollPosition.top);
 	}
 });
