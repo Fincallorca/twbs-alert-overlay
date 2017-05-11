@@ -1,4 +1,4 @@
-/** @preserve Twitter Bootstrap Alert Overlay 0.1.0
+/** @preserve Twitter Bootstrap Alert Overlay 0.1.1
  * Available under the MIT license.
  * See https://github.com/Fincallorca/twbs-alert-overlay/ for more information.
  */

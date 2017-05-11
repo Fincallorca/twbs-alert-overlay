@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### [0.1.1] - 2017-05-11
+
+#### Fixed
+
+* Removed `console.log()`.
+
+#### Changed
+
+* Changed source code to ES6.
+
+#### Added
+
+* Added composer.json to use [Packagist](https://packagist.org/packages/fincallorca/twbs-alert-overlay).
+
 ### [0.1.0] - 2017-04-26
 
 #### Added
