@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### [Unreleased]
+
+#### Fixed
+* Added `z-index` to avoid problems with bootstrap's active buttons.
+
 ### [0.1.1] - 2017-05-11
 
 #### Fixed

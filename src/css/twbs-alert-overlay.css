@@ -10,6 +10,7 @@
 	background-color: rgba(0, 0, 0, .3);
 	padding-top:      2rem;
 	cursor:           pointer;
+	z-index:          3;
 }
 
 #alert-overlay p
